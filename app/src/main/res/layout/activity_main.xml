@@ -4,17 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="70dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu"/>
+        app:menu="@menu/bottom_menu"
+        app:itemIconSize="50dp"
+        app:labelVisibilityMode="unlabeled"/>
 
     <fragment
         android:id="@+id/fragment"
@@ -26,5 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/my_naf"/>
+        app:navGraph="@navigation/my_nav"
+        app:itemIconTint="@color/main"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
