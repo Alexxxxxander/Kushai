@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
     <ImageButton
         android:id="@+id/bnt_Back"
         android:layout_width="wrap_content"
@@ -17,14 +17,22 @@
         />
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:background="@drawable/custom_edit_text_login"
+            android:hint="Номер телефона"
+            android:paddingStart="15dp"
+            android:textColorHint="@color/gray" />
         <EditText
             android:layout_width="300dp"
             android:layout_height="60dp"
@@ -43,22 +51,22 @@
             android:textColorHint="@color/gray" />
 
         <Button
-            android:id="@+id/btn_Login"
+            android:id="@+id/btn_Register"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_margin="10dp"
             android:background="@drawable/custom_login_button"
-            android:text="Войти"
+            android:text="Зарегистрироваться"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20sp" />
 
         <Button
-            android:id="@+id/btn_Register"
+            android:id="@+id/btn_HaveAccount"
             android:layout_width="300dp"
             android:layout_height="60dp"
             android:background="@drawable/custom_login_button"
-            android:text="Зарегистрироваться"
+            android:text="У меня есть аккаунт"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="20sp" />
@@ -67,10 +75,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Вход"
+        android:text="Регистрация"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         style="@style/labelBold"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
