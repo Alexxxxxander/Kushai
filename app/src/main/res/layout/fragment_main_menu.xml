@@ -8,47 +8,167 @@
     tools:openDrawer="start"
     android:id="@+id/drawer_layout"
     tools:context=".MainMenuFragment">
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="15dp">
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Адрес доставки >" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Северная 133"/>
-    </LinearLayout>
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/mainimg"
-        android:layout_marginTop="100dp" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:scrollbarThumbVertical="@color/transparent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/HeaderLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent">
+                <LinearLayout
+                    android:id="@+id/AddresLayout"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="15dp">
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Адрес доставки >"
+                        android:textColor="@color/gray"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Северная 133"
+                        android:fontFamily="@font/montserrat"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"/>
+                </LinearLayout>
+                <ImageButton
+                    android:id="@+id/btn_openMenu"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="10dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@color/transparent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/user_btn_ico"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/HeaderLayout">
+                <EditText
+                    android:id="@+id/search_edit_text"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:background="@drawable/custom_serach_edittext"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="15dp"
+                    android:hint="поиск по еде"
+                    android:drawableStart="@drawable/baseline_search_24"
+                    android:drawablePadding="12dp"
+                    android:drawableTint="@color/gray"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray"
+                    />
+                <TextView
+                    android:id="@+id/labelRestr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Рестораны"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:textSize="26dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/search_edit_text"
+                    />
+                <HorizontalScrollView
+                    android:id="@+id/HorizontalScrollViewRestrType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:scrollbarThumbHorizontal="@color/transparent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/labelRestr">
 
-        <ImageButton
-            android:id="@+id/btn_openMenu"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="10dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:background="@color/white"
-            android:scaleType="centerCrop"
-            android:src="@drawable/user_btn_ico"
-            android:text="Menu"
-            />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingStart="20dp">
+
+                    <ImageButton
+                        style="@style/btn_restr_type"
+                        android:src="@drawable/filter_setting_scroll"
+                        android:padding="6dp"/>
+                    <ImageButton
+                        style="@style/btn_restr_type"
+                        android:src="@drawable/pizza_scroll"/>
+                    <ImageButton
+                        style="@style/btn_restr_type"
+                        android:src="@drawable/roll_scroll"/>
+                    <ImageButton
+                        style="@style/btn_restr_type"
+                        android:src="@drawable/burger_scroll"/>
+                    <ImageButton
+                        style="@style/btn_restr_type"
+                        android:src="@drawable/coffe_scroll"/>
+                    <ImageButton
+                        style="@style/btn_restr_type"
+                        android:src="@drawable/shaurma_scroll"/>
+
+                </LinearLayout>
+                </HorizontalScrollView>
+                <LinearLayout
+                    android:id="@+id/LayoutActii"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@+id/HorizontalScrollViewRestrType">
+                    <TextView
+                        android:id="@+id/labelActcia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Акции"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginLeft="15dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:textSize="26dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/HorizontalScrollViewRestrType"/>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:src="@drawable/actciaphoto"
+                            android:scaleType="centerInside"
+                            />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/LayoutActii"
+                    android:src="@drawable/mainimg"
+                    android:scaleType="center"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

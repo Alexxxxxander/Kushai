@@ -1,5 +1,6 @@
 package com.example.a23_kushai;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,13 +13,9 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -99,7 +96,8 @@ public class MainMenuFragment extends Fragment implements  NavigationView.OnNavi
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.login:
-
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
                 break;
             case R.id.about:
 

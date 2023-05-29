@@ -10,14 +10,16 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_menu"
-        app:itemIconSize="50dp"
-        app:labelVisibilityMode="unlabeled"/>
+        app:itemIconSize="20dp"
+        app:labelVisibilityMode="labeled"
+        app:itemTextAppearanceActive="@style/BottomNavigationViewStyle"
+        app:itemTextAppearanceInactive="@style/BottomNavigationViewStyle"/>
 
     <fragment
         android:id="@+id/fragment"

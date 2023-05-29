@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="serach_style">
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+    </style>
+    <style name="btn_restr_type">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+    <style name="labelBold">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">26dp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="BottomNavigationViewStyle" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/montserrat</item>
+    </style>
+</resources>

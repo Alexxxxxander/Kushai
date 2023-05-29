@@ -1,16 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ShopFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView"
+        android:paddingTop="20dp"
+        android:paddingLeft="15dp"
+        android:textSize="28dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Корзина" />
+        android:text="Корзина"
+        style="@style/labelBold"/>
+    <ImageButton
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="centerCrop"
+        android:background="@color/transparent"
+        android:src="@drawable/shop_bin"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_gravity="right"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/shop_image"
+        android:layout_marginTop="100dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/layout_shadow_top"
+        >
+        <Button
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:background="@drawable/custom_shop_buy_btn"
+            android:text="Купить"
+            android:textAllCaps="false"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="15dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="799 Р"
+            android:textSize="28dp"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

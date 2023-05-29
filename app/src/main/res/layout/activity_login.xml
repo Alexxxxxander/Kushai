@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".Login">
+    tools:context=".LoginActivity">
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
         android:layout_marginVertical="10dp"
         >
@@ -21,15 +21,16 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
-        android:hint="Пароль"
+        android:layout_marginVertical="10dp"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-/>
+            android:hint="Пароль"/>
     </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:layout_margin="10dp"
@@ -41,6 +42,7 @@
         android:background="@drawable/custom_login_button"
         android:textAllCaps="false"/>
     <Button
+        android:id="@+id/btn_Register"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:textSize="20sp"

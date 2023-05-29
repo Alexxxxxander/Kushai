@@ -7,7 +7,17 @@
 
     <TextView
         android:id="@+id/textView"
+        android:paddingTop="20dp"
+        android:paddingLeft="15dp"
+        android:textSize="28dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Уведомления" />
+        android:text="Уведомления"
+        style="@style/labelBold"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/notif_image"
+        android:scaleType="centerInside"
+        android:layout_marginTop="80dp"/>
 </FrameLayout>

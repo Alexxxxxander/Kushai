@@ -4,17 +4,18 @@
     <item
         android:id="@+id/mainMenuFragment"
         android:icon="@drawable/l_g"
-        android:title="" />
+        android:title="Главная" />
     <item
         android:id="@+id/restrauntFragment"
         android:icon="@drawable/r_g"
-        android:title="" />
+        android:title="Рестораны" />
     <item
         android:id="@+id/notifyFragment"
         android:icon="@drawable/n_g"
-        android:title="" />
+        android:title="Уведомления"
+        />
     <item
         android:id="@+id/shopFragment"
         android:icon="@drawable/s_g"
-        android:title="" />
+        android:title="Корзина" />
 </menu>
