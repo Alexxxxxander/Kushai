@@ -100,7 +100,8 @@ public class MainMenuFragment extends Fragment implements  NavigationView.OnNavi
                 startActivity(intent);
                 break;
             case R.id.about:
-
+                Intent intent1 = new Intent(getActivity(), AboutActivity.class);
+                startActivity(intent1);
                 break;
             default:
                 break;
