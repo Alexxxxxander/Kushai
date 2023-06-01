@@ -9,9 +9,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import com.example.a23_kushai.DBCHelper;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.Cursor;
 
 public class LoginAdminPanelActivity extends AppCompatActivity {
-
+    DBCHelper databaseHelper;
+    SQLiteDatabase db;
+    Cursor userCursor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +29,17 @@ public class LoginAdminPanelActivity extends AppCompatActivity {
             }
         });
         Button buttonLogin = findViewById(R.id.btn_Login);
+
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EditText editTextLogin = findViewById(R.id.editTxtLogin);
                 EditText editTextPassword = findViewById(R.id.editTxtPassword);
-                if(editTextPassword.getText().toString().equals("admin") && editTextPassword.getText().toString().equals("admin"))
+                databaseHelper = new DBCHelper(getApplicationContext());
+                db = databaseHelper.getReadableDatabase();
+                String login = editTextLogin.getText().toString();
+                String password = editTextPassword.getText().toString();
+                if(db.rawQuery("select * from users where " + DBCHelper.USERS_LOGIN + " = " + login + " and " + DBCHelper.USERS_PASSWORD + " = " + password + ";", null).isFirst())
                 {
                     Intent intent = new Intent(view.getContext(), AdminPanel.class);
                     startActivity(intent);

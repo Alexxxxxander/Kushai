@@ -23,7 +23,11 @@ public class DBCHelper extends SQLiteOpenHelper  {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE users (" +USERS_ID +" INTEGER PRIMARY KEY AOUTOINCRIMENT,"+ USERS_LOGIN + " TEXT, " + USERS_PASSWORD + " TEXT);");
+        db.execSQL("CREATE TABLE users (" +USERS_ID
+                +" INTEGER PRIMARY KEY AUTOINCREMENT,"+ USERS_LOGIN
+                + " TEXT, " + USERS_PASSWORD + " TEXT);");
+        db.execSQL("INSERT INTO users (" + USERS_LOGIN +
+                "," + USERS_PASSWORD +") VALUES('admin','admin');");
     }
 
     @Override

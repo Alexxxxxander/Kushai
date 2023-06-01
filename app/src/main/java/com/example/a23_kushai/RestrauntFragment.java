@@ -71,8 +71,8 @@ public class RestrauntFragment extends Fragment implements NavigationView.OnNavi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
-        drawerLayout = view.findViewById(R.id.drawer_layout);
+        View view = inflater.inflate(R.layout.fragment_restraunt, container, false);
+        drawerLayout = view.findViewById(R.id.drawer_layout1);
         navigationView = view.findViewById(R.id.rightNavigationView);
         openDrawer = view.findViewById(R.id.btn_openMenu);
         navigationView.setNavigationItemSelectedListener(this);
