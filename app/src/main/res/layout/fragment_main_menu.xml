@@ -158,11 +158,16 @@
                             android:scaleType="centerInside"
                             />
                 </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rViewRestraunts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/LayoutActii"/>
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/LayoutActii"
+                    app:layout_constraintTop_toBottomOf="@+id/lViewRestraunts"
                     android:src="@drawable/mainimg"
                     android:scaleType="center"/>
             </androidx.constraintlayout.widget.ConstraintLayout>

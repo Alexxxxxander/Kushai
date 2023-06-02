@@ -1,12 +1,16 @@
 package com.example.a23_kushai;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.view.LayoutInflater;
@@ -14,8 +18,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,6 +63,14 @@ public class MainMenuFragment extends Fragment implements  NavigationView.OnNavi
         return fragment;
 
     }
+    DBCHelper databaseHelper;
+    SQLiteDatabase db;
+    Cursor cursor;
+    View view;
+    private ArrayList<Integer> mImages = new ArrayList<>();
+    private ArrayList<String> mTitles = new ArrayList<>();
+    private ArrayList<String> mRates = new ArrayList<>();
+    private ArrayList<String> mCategories = new ArrayList<>();
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private ImageButton openDrawer;
@@ -72,7 +88,7 @@ public class MainMenuFragment extends Fragment implements  NavigationView.OnNavi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_main_menu, container, false);
+        view = inflater.inflate(R.layout.fragment_main_menu, container, false);
         drawerLayout = view.findViewById(R.id.drawer_layout);
         navigationView = view.findViewById(R.id.rightNavigationView);
         openDrawer = view.findViewById(R.id.btn_openMenu);
@@ -87,10 +103,34 @@ public class MainMenuFragment extends Fragment implements  NavigationView.OnNavi
                 drawerLayout.openDrawer(GravityCompat.END);
             }
         });
+        getItems();
         return view;
 
 
+
     }
+    void getItems(){
+        databaseHelper = new DBCHelper(requireContext().getApplicationContext());
+        db = databaseHelper.getReadableDatabase();
+        Cursor query = db.rawQuery("SELECT * FROM " + DBCHelper.TABLE_RESTR,null);
+        while (query.moveToNext()){
+            mTitles.add(query.getString(1));
+            mRates.add(query.getString(2));
+            mCategories.add(query.getString(3));
+            mImages.add(query.getInt(4));
+        }
+        query.close();
+        db.close();
+        initRecyclerView();
+    }
+    private void initRecyclerView(){
+        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
+        RecyclerView recyclerViewRestr = view.findViewById(R.id.rViewRestraunts);
+        recyclerViewRestr.setLayoutManager(layoutManager);
+        RestrauntAdapter restrauntAdapter = new RestrauntAdapter(view.getContext(), mImages, mTitles, mRates, mCategories);
+        recyclerViewRestr.setAdapter(restrauntAdapter);
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

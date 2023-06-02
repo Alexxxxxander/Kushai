@@ -39,11 +39,15 @@ public class LoginAdminPanelActivity extends AppCompatActivity {
                 db = databaseHelper.getReadableDatabase();
                 String login = editTextLogin.getText().toString();
                 String password = editTextPassword.getText().toString();
-                if(db.rawQuery("select * from users where " + DBCHelper.USERS_LOGIN + " = " + login + " and " + DBCHelper.USERS_PASSWORD + " = " + password + ";", null).isFirst())
-                {
-                    Intent intent = new Intent(view.getContext(), AdminPanel.class);
-                    startActivity(intent);
+                Cursor query = db.rawQuery("SELECT * FROM users;",null);
+                while (query.moveToNext()){
+                    if(login.equals(query.getString(1)) && password.equals(query.getString(2)))
+                    {
+                        Intent intent = new Intent(view.getContext(), AdminPanel.class);
+                        startActivity(intent);
+                    }
                 }
+
 
             }
         });
