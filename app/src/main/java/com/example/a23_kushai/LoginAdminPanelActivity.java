@@ -47,6 +47,8 @@ public class LoginAdminPanelActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 }
+                db.close();
+                query.close();
 
 
             }

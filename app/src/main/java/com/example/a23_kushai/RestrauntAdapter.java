@@ -26,6 +26,7 @@ public class RestrauntAdapter extends RecyclerView.Adapter<RestrauntAdapter.View
         mTitles = titles;
         mRates = rates;
         mCategories = categories;
+        mContext = context;
     }
     @NonNull
     @Override
@@ -36,6 +37,7 @@ public class RestrauntAdapter extends RecyclerView.Adapter<RestrauntAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         holder.image.setImageResource(mImages.get(position));
         holder.title.setText(mTitles.get(position));
         holder.rate.setText(mRates.get(position));
@@ -54,6 +56,7 @@ public class RestrauntAdapter extends RecyclerView.Adapter<RestrauntAdapter.View
         TextView title;
         TextView rate;
         TextView categories;
+
         public ViewHolder(View itemView){
             super(itemView);
             image =  itemView.findViewById(R.id.imgViewRestr);

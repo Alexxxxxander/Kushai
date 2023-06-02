@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -118,12 +119,16 @@ public class MainMenuFragment extends Fragment implements  NavigationView.OnNavi
             mRates.add(query.getString(2));
             mCategories.add(query.getString(3));
             mImages.add(query.getInt(4));
+            Log.println(Log.INFO,"MainActivity","mTitles " + mTitles.get(0).toString() );
         }
+
+        initRecyclerView();
         query.close();
         db.close();
-        initRecyclerView();
     }
     private void initRecyclerView(){
+        String TAG = "MainActivity";
+        Log.d(TAG, "initRecycleView");
         LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
         RecyclerView recyclerViewRestr = view.findViewById(R.id.rViewRestraunts);
         recyclerViewRestr.setLayoutManager(layoutManager);
