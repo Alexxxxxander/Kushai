@@ -20,18 +20,24 @@ public class RestrauntAdapter extends RecyclerView.Adapter<RestrauntAdapter.View
     private ArrayList<String> mTitles = new ArrayList<>();
     private ArrayList<String> mRates = new ArrayList<>();
     private ArrayList<String> mCategories = new ArrayList<>();
+    private ArrayList<Integer> mTimeMin = new ArrayList<>();
+    private ArrayList<Integer> mTimeMax = new ArrayList<>();
     private Context mContext;
-    public RestrauntAdapter(Context context, ArrayList<Integer> images, ArrayList<String> titles, ArrayList<String> rates, ArrayList<String> categories){
+    public RestrauntAdapter(Context context, ArrayList<Integer> images, ArrayList<String> titles,
+                            ArrayList<String> rates, ArrayList<String> categories,
+                            ArrayList<Integer> timeMin, ArrayList<Integer> timeMax){
         mImages = images;
         mTitles = titles;
         mRates = rates;
         mCategories = categories;
         mContext = context;
+        mTimeMin = timeMin;
+        mTimeMax = timeMax;
     }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.restraunt_layout, parent, true);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.restraunt_layout, parent, false);
         return new ViewHolder(view);
     }
 
@@ -42,12 +48,14 @@ public class RestrauntAdapter extends RecyclerView.Adapter<RestrauntAdapter.View
         holder.title.setText(mTitles.get(position));
         holder.rate.setText(mRates.get(position));
         holder.categories.setText(mCategories.get(position));
+        holder.time.setText(mTimeMin.get(position) + " - " + mTimeMax.get(position) + " мин");
+
     }
 
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mImages.size();
     }
 
 
@@ -56,6 +64,7 @@ public class RestrauntAdapter extends RecyclerView.Adapter<RestrauntAdapter.View
         TextView title;
         TextView rate;
         TextView categories;
+        TextView time;
 
         public ViewHolder(View itemView){
             super(itemView);
@@ -63,6 +72,7 @@ public class RestrauntAdapter extends RecyclerView.Adapter<RestrauntAdapter.View
             title = itemView.findViewById(R.id.txtViewTitleRestr);
             rate = itemView.findViewById(R.id.txtViewRateRestr);
             categories = itemView.findViewById(R.id.txtViewCategories);
+            time = itemView.findViewById(R.id.txtViewTime);
         }
     }
 }

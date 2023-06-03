@@ -72,6 +72,8 @@ public class MainMenuFragment extends Fragment implements  NavigationView.OnNavi
     private ArrayList<String> mTitles = new ArrayList<>();
     private ArrayList<String> mRates = new ArrayList<>();
     private ArrayList<String> mCategories = new ArrayList<>();
+    private ArrayList<Integer> mTimeMin = new ArrayList<>();
+    private ArrayList<Integer> mTimeMax = new ArrayList<>();
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private ImageButton openDrawer;
@@ -121,7 +123,6 @@ public class MainMenuFragment extends Fragment implements  NavigationView.OnNavi
             mImages.add(query.getInt(4));
             Log.println(Log.INFO,"MainActivity","mTitles " + mTitles.get(0).toString() );
         }
-
         initRecyclerView();
         query.close();
         db.close();
@@ -129,10 +130,10 @@ public class MainMenuFragment extends Fragment implements  NavigationView.OnNavi
     private void initRecyclerView(){
         String TAG = "MainActivity";
         Log.d(TAG, "initRecycleView");
-        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
         RecyclerView recyclerViewRestr = view.findViewById(R.id.rViewRestraunts);
         recyclerViewRestr.setLayoutManager(layoutManager);
-        RestrauntAdapter restrauntAdapter = new RestrauntAdapter(view.getContext(), mImages, mTitles, mRates, mCategories);
+        RestrauntAdapter restrauntAdapter = new RestrauntAdapter(view.getContext(), mImages, mTitles, mRates, mCategories, mTimeMin, mTimeMax);
         recyclerViewRestr.setAdapter(restrauntAdapter);
     }
 
