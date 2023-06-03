@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 
 public class DBCHelper extends SQLiteOpenHelper  {
     private static final String DATABASE_NAME="kushai.db";
-    private static final int SCHEMA = 3;
+    private static final int SCHEMA = 4;
 
     //Таблица USERS
     static final String TABLE_USERS = "users";
@@ -42,13 +42,14 @@ public class DBCHelper extends SQLiteOpenHelper  {
         db.execSQL("INSERT INTO users (" + USERS_LOGIN +
                 "," + USERS_PASSWORD +") VALUES('admin','admin');");
         //Создание таблицы ресторанов
+
         db.execSQL("CREATE TABLE " +TABLE_RESTR + "("
                 + RESTR_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + RESTR_NAME + " TEXT UNIQUE, "
                 + RESTR_RATE + " REAL, "
                 + RESTR_CATEGORIES + " TEXT, "
-                + RESTR_IMAGE + " INTEGER,"
-                + RESTR_TIME_MIN + "INTEGER,"
+                + RESTR_IMAGE + " INTEGER, "
+                + RESTR_TIME_MIN + "INTEGER, "
                 + RESTR_TIME_MAX + "INTEGER);");
         //Добавление первого ресторана
         db.execSQL("INSERT INTO " + TABLE_RESTR +
